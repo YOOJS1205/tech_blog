@@ -12,7 +12,7 @@ import { RecoilRoot, useRecoilState } from 'recoil';
 import { preferencesStore } from 'stores/settings';
 import { SWRConfig, SWRConfiguration } from 'swr';
 
-import PageLoading from '~/components/PageLoading';
+// import PageLoading from '~/components/PageLoading';
 import { bootstrap } from '~/lib/bootstrap-client';
 import { posthogConfig, posthogId } from '~/lib/config';
 import '~/styles/custom/index.scss';
@@ -77,7 +77,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
       <SWRConfig value={swrConfig}>
         <Bootstrap />
         <GoogleAnalytics trackPageViews />
-        <PageLoading />
+        {/* <PageLoading /> */}
 
         <motion.div
           key={router.pathname + router.query?.pageId || ''}
