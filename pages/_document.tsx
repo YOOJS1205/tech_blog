@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import Document, { Html, Head, Main, NextScript } from 'next/document';
+import Script from 'next/script';
 
 // import { defaultTheme } from '~/lib/config';
 
@@ -26,14 +27,24 @@ export default class MyDocument extends Document {
         </Head>
 
         {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-2E2YCN3HBJ"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);
-          gtag('js', new Date());
+        <Script
+          async
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-CTDYL1EN3W"
+        ></Script>
+        <Script
+          id="gtag-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-          gtag('config', 'G-2E2YCN3HBJ');
-        </script>
+  gtag('config', 'G-CTDYL1EN3W');
+  `,
+          }}
+        ></Script>
 
         <body>
           {/* 로딩 전 다크모드 적용 */}
