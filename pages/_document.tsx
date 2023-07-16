@@ -26,26 +26,6 @@ export default class MyDocument extends Document {
           />
         </Head>
 
-        {/* Google tag (gtag.js) */}
-        <Script
-          async
-          strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=G-CTDYL1EN3W"
-        ></Script>
-        <Script
-          id="gtag-init"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-CTDYL1EN3W');
-  `,
-          }}
-        ></Script>
-
         <body>
           {/* 로딩 전 다크모드 적용 */}
           {/* <script

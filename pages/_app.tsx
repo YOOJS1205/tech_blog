@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import { GoogleAnalytics } from 'nextjs-google-analytics';
+import * as gtag from '../lib/gtag';
 
 import axios from 'axios';
 import { motion } from 'framer-motion';
@@ -15,6 +16,7 @@ import { SWRConfig, SWRConfiguration } from 'swr';
 // import PageLoading from '~/components/PageLoading';
 import { bootstrap } from '~/lib/bootstrap-client';
 import { posthogConfig, posthogId } from '~/lib/config';
+import Script from 'next/script';
 import '~/styles/custom/index.scss';
 
 const Bootstrap = () => {
@@ -77,6 +79,26 @@ export default function App({ Component, pageProps, router }: AppProps) {
       <SWRConfig value={swrConfig}>
         <Bootstrap />
         <GoogleAnalytics trackPageViews />
+
+        {/* Google tag (gtag.js) */}
+        <Script
+          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
+        />
+        <Script
+          id="gtag-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '${gtag.GA_TRACKING_ID}', {
+          page_path: window.location.pathname,
+        });
+      `,
+          }}
+        />
         {/* <PageLoading /> */}
 
         <motion.div
