@@ -24,6 +24,7 @@ export default class MyDocument extends Document {
             rel="stylesheet"
             type="text/css"
           />
+          <meta name="google-site-verification" content="kGK5Hf7rOilMROfzU46_gGGa88slCRHMXvk63eKUDHI" />
         </Head>
 
         <body>
