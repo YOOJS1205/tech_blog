@@ -54,7 +54,7 @@ export default siteConfig({
   navigationLinks: [
     {
       title: '카테고리',
-      pageId: 'e62ef27bd26048b7bafbf9980306c68f',
+      pageId: '31c1ad1990db42e5ba58ec4e55dc2471',
     },
   ],
 
